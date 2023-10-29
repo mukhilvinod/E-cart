@@ -1,0 +1,22 @@
+{% extends 'theme.html'%}
+
+{% block content %}
+
+
+
+
+<div class="container text-center">
+    <h1 > {{ name }} Your Order is  Confirmed {{ city }}</h1>
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Well done!</h4>
+        <h3 class="alert-heading"> Your Order {{ product }} is confirmed!!!</h3>
+        <p>we have received your Order {{ product }},our representative will call you shortly {{ city }}</p>
+        <hr>
+        <p class="mb-0">Thank you</p>
+        <a href="{% url 'index' %}">Go Back to shop more!!!</a>
+      </div>
+    </div>
+
+
+
+{% endblock%}

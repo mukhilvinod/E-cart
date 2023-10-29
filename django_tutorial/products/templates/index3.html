@@ -1,0 +1,48 @@
+{% extends 'theme.html'%}
+{{ name }}
+
+<h2>product</h2>
+{% block content %}
+<div class="container" style="padding-top: 19px;">
+    <div class="row">
+      
+
+{% for d in dept %}
+<div class="col-md-3" style="margin-top: 28px;">
+<form method="post">
+    <div class="card">
+      <img src="{{d.image}}" class="card-img-top" alt="..." >
+        
+        <div class="card-body">
+          <form method="post" action="{% url 'contact' %}">{% csrf_token %}
+
+            <input type="text"  class="card-title" name="name"  value="{{d.name}}" readonly>
+            <input type="text"  class="card-text" name="price"  value="{{d.price}}" readonly>
+            <input value="{{ name }}">
+            <br>
+            <br>
+            <input type="submit" class="btn btn-primary" value="Buy">
+          </form>
+
+         
+          <!-- <h5 class="card-title">{{d.name}}</h5>
+          <p class="card-text">${{d.price}}</p>
+           -->
+        </div>
+      </div>
+</div>
+</form>
+
+  
+
+
+ {% endfor %}
+    </div>
+    
+</div>
+
+
+
+
+
+{% endblock%}

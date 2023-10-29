@@ -1,0 +1,68 @@
+{% extends 'theme2.html'%}
+
+
+
+<h2>product</h2>
+{% block content %}
+<div class="container" style="padding-top: 19px;">
+    <div class="row">
+      
+{% for product in products %}
+
+
+<div class="col-md-3" style="margin-top: 28px;">
+    <div class="card">
+        <img src="{{product.image}}" class="card-img-top" alt="..." >
+        <div class="card-body">
+          <!-- <h5 class="card-title" >{{product.name}}</h5>
+          <p class="card-text">${{product.price}}</p>
+          <a href="{% url 'contact' %}" class="btn btn-primary">Buy</a> -->
+          <form method="post" action="{% url 'about' %}">{% csrf_token %}
+
+            <input  type="text"  style="border-color: rgb(255, 255, 255);" class="card-title " name="name"  value="{{product.name}}" readonly  >
+          
+            <input    type="text"  class="card-text " style="border-color: aliceblue;" name="price"   value="{{product.price}}" readonly   >  ₹
+            {% for user in users %}
+            <input type="hidden"  name="username" value="{{ name }}">
+            <input type="hidden"  name="email" value="{{  email }}">
+
+            <input type="hidden"  name="phone" value="{{ phone }}">
+            <input type="hidden"  name="country" value="{{ country }}">
+            <input type="hidden"  name="state" value="{{ state }}">
+            <input type="hidden"  name="city" value="{{ city }}">
+            <input type="hidden"  name="landmark" value="{{ landmark }}">
+
+            {% endfor %}
+            
+
+
+
+
+
+
+
+
+
+            <br>
+            <br>
+            <a href="http://127.0.0.1:8000/products/new_reg/" class="btn btn-primary">Buy</a>
+          </form>
+
+          
+        </div>
+      </div>
+</div>
+    
+
+
+
+ {% endfor %}
+ 
+    </div>
+</div>
+
+
+
+
+
+{% endblock%}
